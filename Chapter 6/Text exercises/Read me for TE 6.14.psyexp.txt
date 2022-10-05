@@ -1,0 +1,1 @@
+To view the Builder code: Download the folder, unzip, and open the .psyexp files in PsychoPy
