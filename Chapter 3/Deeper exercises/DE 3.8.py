@@ -1,8 +1,5 @@
-# This file solves class exercise 3.8 in the IEP course 2018-2019
 # Written by Tom Verguts, Nov 3, 2017
-
 # this is an imaginary score sheet for a student on four courses.
-# Max score on each course is 20.
 
 # import modules
 from psychopy import visual
