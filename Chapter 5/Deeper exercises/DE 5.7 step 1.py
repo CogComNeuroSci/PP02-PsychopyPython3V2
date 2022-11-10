@@ -5,7 +5,7 @@ some I/O testing in a basic "experiment"
 
 # import modules
 from psychopy import prefs
-prefs.general['audioLib'] = ['pyo']
+prefs.hardware['audioLib'] = ['pyo']
 from psychopy import visual, event, core, sound
 import time, numpy
 
