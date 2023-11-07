@@ -31,10 +31,13 @@ FontColor   = numpy.array([ "red", "blue", "green", "yellow",
                             "red", "blue", "green", "yellow"])
 
 # deduce the congruence
-CongruenceLevels    = numpy.array(["Incongruent", "Congruent"])
-CongruenceBoolean   = numpy.array(ColorWord == FontColor)
-Congruence          = CongruenceLevels[[CongruenceBoolean*1]]
+Congruence = numpy.repeat('Incongruent', len(ColorWord))
+Congruence[ColorWord == FontColor] = 'Congruent'
 
+#Alternative:
+#CongruenceLevels    = numpy.array(["Incongruent", "Congruent"])
+#CongruenceBoolean   = numpy.array(ColorWord == FontColor)
+#Congruence          = CongruenceLevels[CongruenceBoolean*1]
 # deduce the task instruction
 if participant%2 == 0:
     # participants with an even number have to respond to the color word
