@@ -11,7 +11,6 @@ win = visual.Window(fullscr = True, color = (-1,-1,-1), units = "norm")
 
 # Initialize variables
 ## There are number of variables that stay the same across the entire assignment.
-## These are initialized here as integers, which is logical because we don't want them to be mutable.
 start_value     = 1
 end_value       = 100
 value           = start_value
@@ -41,7 +40,7 @@ while numpy.any(value_array > 100) == False:
     value_array = numpy.vstack([value_array, value])
 
     ## Adjust the text and the color of the message
-    stim.text   = "Current bitcoin value: \n {0:.0f} euro, \t {1:.0f} euro \n {2:.0f} euro, \t {3:.0f} euro".format(int(value[0]),int(value[1]),int(value[2]),int(value[3]))
+    stim.text   = f"Current bitcoin value: \n {int(value[0])} euro, \t {int(value[1])} euro \n {int(value[2])} euro, \t {int(value[3])} euro"
 
     ## for each of the four values
     for f in range(value_array.shape[1]):
@@ -79,5 +78,5 @@ while numpy.any(value_array > 100) == False:
     time.sleep(0.1)
 
 # Close the window at the end of the presentation
-time.sleep(100)
+time.sleep(1)
 win.close()

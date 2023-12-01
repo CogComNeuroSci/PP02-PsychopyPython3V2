@@ -5,7 +5,7 @@ from psychopy import visual, event, core, gui
 import time, numpy
 
 # create a dialog box
-info = {"Participant number":0, "Participant name":"Unknown", "Gender":["male", "female", "X"], "Age":0}
+info = {"Participant number":0, "Participant name":"Unknown", "Gender":["male", "female"], "Age":0}
 infoDlg = gui.DlgFromDict(dictionary=info, title="Stroop Experiment")
 if infoDlg.OK:  # this will be True (user hit OK) or False (cancelled)
     print(info)

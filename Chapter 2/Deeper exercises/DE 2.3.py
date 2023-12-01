@@ -4,7 +4,7 @@ from psychopy import visual
 import time 
 
 win = visual.Window(fullscr = True, monitor = "testMonitor", units = "deg")
-rect = visual.Rect(win, width = 4, height = 4)
+rect = visual.rect.Rect(win, width = 4, height = 4, color = (1, 1, 1))
 
 rect.draw()
 win.flip()
