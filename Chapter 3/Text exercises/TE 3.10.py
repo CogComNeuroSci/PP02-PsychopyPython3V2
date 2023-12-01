@@ -1,3 +1,3 @@
 ### Strings
 score = 2/3
-print("Your score on the exam is {}%".format(round(score*100)))
+print(f"Your score on the exam is {round(score*100)}%")

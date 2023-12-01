@@ -12,7 +12,7 @@ for number in range(2,100):
         if (number % i) == 0:
             # calculate the second factor
             j = int(number/i)
-            print("{0} equals {1} * {2}".format(number,i,j))
+            print(f"{number} equals {i} * {j}")
             break
     else:
-        print("{0} is a prime number".format(number))
+        print(f"{number} is a prime number")

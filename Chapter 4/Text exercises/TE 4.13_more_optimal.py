@@ -13,4 +13,4 @@ for number in range(2,500):
         if number % x == 0:
             sum += ( x + (number/x))
     if sum == number:
-        print("{} is perfect-- that's very rare!".format(number))
+        print(f"{number} is perfect-- that's very rare!")
