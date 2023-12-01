@@ -18,7 +18,7 @@ my_directory = os.getcwd()
 # initialize the window
 win_width = 1000
 win_height = 700
-win = visual.Window([win_width,win_height])
+win = visual.Window([win_width,win_height], units = "norm")
 
 # initializing
 colors      = ["red","green"]
@@ -54,11 +54,11 @@ correct = [["f", "j"][loop%2] for loop in range(1,5)] # even numbers, press f
 
 # graphical elements
 stimulus        = visual.TextStim(win,text="")
-welcome         = visual.TextStim(win,text=(    "Hi {},\n"+
+welcome         = visual.TextStim(win,text=(    f"Hi {subject_name},\n"+
                                                 "Welcome to the parity judgement task!\n"+
                                                 "Respond to the number\n"+
                                                 "and ignore its color.\n\n"+
-                                                "Push the space bar to proceed.").format(subject_name),
+                                                "Push the space bar to proceed."),
                                     wrapWidth = win_width*text_width)
 instruct        = visual.TextStim(win,text=(    "Push left (letter 'f') or\n"+
                                                 "Push right (letter 'j') \n\n"+

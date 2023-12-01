@@ -1,5 +1,7 @@
 # displaying Stroop stimuli
 
+# The order of the blocks (typical and atypical Stroop task) is randomnized across participants (step 5)
+
 # import modules
 from psychopy import visual, event, core, gui
 import time, numpy

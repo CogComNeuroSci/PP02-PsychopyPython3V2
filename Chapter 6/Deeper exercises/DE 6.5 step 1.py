@@ -1,5 +1,7 @@
 # displaying Stroop stimuli
 
+# Fixation cross is added before the target is presented (step 1)
+
 # import modules
 from psychopy import visual, event, core, gui
 import time, numpy

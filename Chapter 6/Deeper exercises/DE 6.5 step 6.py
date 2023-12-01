@@ -1,5 +1,7 @@
 # displaying Stroop stimuli
 
+# Participants now receive the average accuracy and RT per block (step 6)
+
 # import modules
 from psychopy import visual, event, core, gui
 import time, numpy

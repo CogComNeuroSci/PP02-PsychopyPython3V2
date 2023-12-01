@@ -1,5 +1,7 @@
 # displaying Stroop stimuli
 
+# A response deadline of 1-second is applied. Too-late responses are followed by corresponding feedback (step 3)
+
 # import modules
 from psychopy import visual, event, core, gui
 import time, numpy

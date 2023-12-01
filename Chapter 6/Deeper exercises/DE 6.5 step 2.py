@@ -1,5 +1,7 @@
 # displaying Stroop stimuli
 
+# Practice phase is included at the start of the experiment (step 2)
+
 # import modules
 from psychopy import visual, event, core, gui
 import time, numpy
@@ -38,6 +40,7 @@ Congruence[ColorWord == FontColor] = 'Congruent'
 #CongruenceLevels    = numpy.array(["Incongruent", "Congruent"])
 #CongruenceBoolean   = numpy.array(ColorWord == FontColor)
 #Congruence          = CongruenceLevels[CongruenceBoolean*1]
+
 # deduce the task instruction
 if participant%2 == 0:
     # participants with an even number have to respond to the color word

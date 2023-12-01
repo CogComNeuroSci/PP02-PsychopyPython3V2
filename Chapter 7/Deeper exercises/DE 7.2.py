@@ -1,16 +1,14 @@
 """
 parity judgement task implementation with ExperimentHandler
 Esther De Loof & Tom Verguts, february 2019
-
+in this script, the correct list is constructed via list comprehension (google it)
 """
 
 # import modules
-from __future__ import division
 from psychopy import visual, event, core, gui, data
 import numpy as np
 from numpy import random
 import os
-import platform
 
 # set the directory
 my_directory = os.getcwd()
@@ -18,7 +16,7 @@ my_directory = os.getcwd()
 # initialize the window
 win_width = 1000
 win_height = 700
-win = visual.Window([win_width,win_height])
+win = visual.Window([win_width,win_height], units = "norm")
 
 # initializing
 colors      = ["red","green"]
@@ -53,11 +51,11 @@ correct = [["f", "j"][loop%2] for loop in range(1,5)] # even numbers, press f
 
 # graphical elements
 stimulus        = visual.TextStim(win,text="")
-welcome         = visual.TextStim(win,text=(    "Hi {},\n"+
+welcome         = visual.TextStim(win,text=(    f"Hi {subject_name},\n"+
                                                 "Welcome to the parity judgement task!\n"+
                                                 "Respond to the number\n"+
                                                 "and ignore its color.\n\n"+
-                                                "Push the space bar to proceed.").format(subject_name),
+                                                "Push the space bar to proceed."),
                                     wrapWidth = win_width*text_width)
 instruct        = visual.TextStim(win,text=(    "Push left (letter 'f') or\n"+
                                                 "Push right (letter 'j') \n\n"+
@@ -78,7 +76,7 @@ win.flip()
 event.waitKeys(keyList = "space")
 
 # create the trials
-trials = data.TrialHandler(trialList = Design, nReps = 1, name = "Exp", method = "random")  # this will set the global seed - for the whole exp
+trials = data.TrialHandler(trialList = Design, nReps = 2, name = "Exp", method = "random")  # this will set the global seed - for the whole exp
 thisExp.addLoop(trials)
 
 # start of the trial loop

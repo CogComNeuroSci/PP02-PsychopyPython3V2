@@ -1,5 +1,7 @@
 # displaying Stroop stimuli
 
+# The paradigm is changed into a within-subject design (each participant performs both types of blocks; step 4) 
+
 # import modules
 from psychopy import visual, event, core, gui
 import time, numpy
