@@ -267,7 +267,7 @@ for b in range(nblocks):
         # check whether a response has been given
         if keys[0] != 0:
             
-            # Store the RT and response information
+            # Store the RT and response information 
             trials[i,4] = keys[0]
             trials[i,5] = int(trials[i,3] == trials[i,4])
             trials[i,6] = RT
