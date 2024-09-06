@@ -109,7 +109,7 @@ MessageOnSCreen = visual.TextStim(win, text = "OK")
 Stroop_stim     = visual.TextStim(win, text = "red", color = "blue")
 TheEndImage     = visual.ImageStim(win, image = "the_end.jpg")
 myItem          = visual.TextStim(win, text="How difficult was this block?", height=.08, units='norm')
-myRatingScale   = visual.RatingScale(win, low=1, high=9, marker='slider', tickMarks=[1,5,9], stretch=1.5, tickHeight=1.5, labels=["easy","average","hard"])
+mySlider        = visual.Slider(win, ticks = list(range(9)), labels= ["easy", "average", "hard"], style = "slider", size = (1.5, .1), pos = (0,-0.5))
 
 def message(message_text = "", response_key = "space", duration = 0, height = None, pos = (0.0, 0.0), color = "white"):
     
@@ -178,15 +178,15 @@ def determine_CorResp(target = "red"):
 def perform_rating():
     
     # remove any remaining ratings
-    myRatingScale.reset() 
+    mySlider.reset() 
     
     # show & update until a response has been made
-    while myRatingScale.noResponse:
+    while not mySlider.getRating():
         myItem.draw()
-        myRatingScale.draw()
+        mySlider.draw()
         win.flip()
     
-    return myRatingScale.getRating()
+    return mySlider.getRating()
 
 # order the task instruction
 if participant%2 != 0:
@@ -308,13 +308,13 @@ for b in range(nblocks):
     trials[range(b*ntrials,(b+1)*ntrials),7] = perform_rating()
     
     # display the feedback message at a block level
-    averageRT.append(   numpy.nanmean(trials[range(b*ntrials,(b+1)*ntrials),6].astype(numpy.float))*1000)
-    averageACC.append(  numpy.nanmean(trials[range(b*ntrials,(b+1)*ntrials),5].astype(numpy.float))*100)
+    averageRT.append(   numpy.nanmean(trials[range(b*ntrials,(b+1)*ntrials),6].astype(float))*1000)
+    averageACC.append(  numpy.nanmean(trials[range(b*ntrials,(b+1)*ntrials),5].astype(float))*100)
     
     # display the overall feedback at the end of the last block (will be skipped when we press escape)
     if b == (nblocks-1):
         # determine the most difficult block
-        blockRatings = numpy.array([trials[numpy.array(range(0,2))*ntrials,7].astype(numpy.float)])
+        blockRatings = numpy.array([trials[numpy.array(range(0,2))*ntrials,7].astype(float)])
         max = blockRatings.max()
         
         # check whether there was a preference

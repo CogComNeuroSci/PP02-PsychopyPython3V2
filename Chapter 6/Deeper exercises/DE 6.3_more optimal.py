@@ -5,7 +5,7 @@ some I/O testing in a basic "experiment"
 
 # import modules
 from psychopy import prefs
-prefs.general['audioLib'] = ['pyo']
+prefs.hardware['audioLib'] = ['PTB']
 from psychopy import visual, event, core, sound, gui
 import time, numpy
 
@@ -93,7 +93,7 @@ def determine_feedback():
             accuracy = 1
         else:
             accuracy = 0
-    
+
     if accuracy == 1:
         text_correct.draw()
         current_sound = 4
@@ -114,7 +114,6 @@ def play_feedback(current_sound = 0, sound_adjustment = 0.1):
         sound_to_play.play()
         time.sleep(sound_duration)
 
-
 # perform three trials
 for trial in range(n_trials):
     
@@ -134,15 +133,13 @@ for trial in range(n_trials):
     play_feedback(current_sound, sound_adjustment)
 
 # probe the pleasantness and tiredness of the participant
-myRatingScale = visual.RatingScale(win, low=0, high=100, marker="slider",
-    tickMarks=[0, 25, 50, 75, 100], stretch=1.5, tickHeight=1.5,  # singleClick=True,
-    labels=["0%", "25%", "50%", "75%", "100%"])
+mySlider = visual.Slider(win, ticks = [0, 25, 50, 75, 100], labels= ["0%", "25%", "50%", "75%", "100%"], style = "slider", size = (1.5, .1), pos = (0,-0.5))
 myItem = visual.TextStim(win, text="", height=.08, units="norm")
 
 for quest in range(2):
 
     ## remove any remaining ratings
-    myRatingScale.reset() 
+    mySlider.reset() 
 
     if quest == 0:
         myItem.text = "How pleasant was this experiment?"
@@ -150,14 +147,14 @@ for quest in range(2):
         myItem.text = "How tired do you feel?"
 
     ## show & update until a response has been made
-    while myRatingScale.noResponse:
+    while not mySlider.getRating():
         myItem.draw()
-        myRatingScale.draw()
+        mySlider.draw()
         win.flip()
         if event.getKeys("escape"):
             core.quit()
 
-    print(f"Answer to question {str(quest)}: {myRatingScale.getRating()}%")
+    print(f"Answer to question {str(quest)}: {mySlider.getRating()}%")
 
 # display the average RT for one second
 meantime = numpy.mean(RT)
